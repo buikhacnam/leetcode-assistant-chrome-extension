@@ -4,9 +4,6 @@
 	"description": "Help you to save your time on leetcode",
 	"author": "https://github.com/buikhacnam",
 	"permissions": ["storage", "tabs"],
-	"background": {
-		"service_worker": "background.js"
-	},
 	"action": {
 		"default_icon": {
 			"16": "assets/ext-icon.png",
