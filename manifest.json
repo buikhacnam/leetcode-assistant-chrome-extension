@@ -8,18 +8,6 @@
 	"background": {
 		"service_worker": "background.js"
 	},
-	"content_scripts": [
-		{
-			"matches": ["https://*.leetcode.com/*"],
-			"js": ["contentScript.js"]
-		}
-	],
-	"web_accessible_resources": [
-		{
-			"resources": [],
-			"matches": ["https://*.leetcode.com/*"]
-		}
-	],
 	"action": {
 		"default_icon": {
 			"16": "assets/ext-icon.png",
