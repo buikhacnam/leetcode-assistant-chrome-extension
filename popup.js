@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 	if (activeTab.url.includes('https://leetcode.com/problems/')) {
 		const container = document.getElementsByClassName('container')[0]
 
-		container.innerHTML = `<a href="http://localhost:3000/experiments/${problemSlug}">View Solution</a>`
+		container.innerHTML = `<a class='solution' href="http://localhost:3000/experiments/${problemSlug}">View Solution Of This Problem</a>`
     addPopupToLinks(container, problemSlug)
 	} else {
 		const container = document.getElementsByClassName('container')[0]
 
 		container.innerHTML =
-			'<div class="title">Visit leetcode.com/problems/[problem-name] to use the extension.</div>'
+			'<div><p><b>This page doesn’t appear to be Leetcode.com</b></p>Please visit a Leetcode problem page to view the solution. Ex: <a href="https://leetcode.com/problems/two-sum/">https://leetcode.com/problems/two-sum/</a></p></div>'
 	}
 
   const savedLinksContainer = document.querySelector('.saved-links');
@@ -42,13 +42,8 @@ function addPopupToLinks(container, problemSlug) {
 
         saveClickedLink(location, problemSlug);
 
+        openPopup(location)
 
-				chrome.windows.create({
-					url: location,
-					type: 'popup',
-					height: 800,
-					width: 800,
-				})
 			}
 		})()
 	}
@@ -63,13 +58,13 @@ function saveClickedLink(link, problemSlug) {
       const duplicate = links.some(savedLink => savedLink.link === link);
       if (duplicate) {
           console.log('Link already saved:', link);
-          return;
-      }
+      } else {
       links.push({ link, problemSlug });
       
       chrome.storage.local.set({ links }, () => {
           console.log('Link saved:', link);
       });
+    }
   });
 }
 
@@ -94,7 +89,7 @@ function renderSavedLinks(links, container) {
 
           // Add a delete button for each link
           const deleteButton = document.createElement('button');
-          deleteButton.textContent = 'Delete';
+          deleteButton.textContent = 'Remove';
           deleteButton.addEventListener('click', () => {
               deleteLink(linkData);
               renderSavedLinks(links, container); // Re-render the list after deletion
@@ -115,8 +110,10 @@ function openPopup(link) {
   chrome.windows.create({
       url: link,
       type: 'popup',
-      height: 800,
+      height: screen.height,
       width: 800,
+      left: screen.width - 800,
+      top: 0,
   });
 }
 

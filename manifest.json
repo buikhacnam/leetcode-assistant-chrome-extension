@@ -1,37 +1,33 @@
 {
-  "name": "Leetcode Assistant",
-  "version": "0.1.0",
-  "description": "Help you to save your time on leetcode",
-  "permissions": ["storage", "tabs"],
-  "host_permissions": ["https://*.leetcode.com/*"],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://*.leetcode.com/*"],
-      "js": ["contentScript.js"]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "assets/bookmark.png",
-        "assets/play.png",
-        "assets/delete.png",
-        "assets/save.png"
-      ],
-      "matches": ["https://*.leetcode.com/*"]
-    }
-  ],
-  "action": {
-    "default_icon": {
-      "16": "assets/ext-icon.png",
-      "24": "assets/ext-icon.png",
-      "32": "assets/ext-icon.png"
-    },
-    "default_title": "Leetcode Assistant",
-    "default_popup": "popup.html"
-  },
-  "manifest_version": 3
+	"name": "Leetcode Assistant",
+	"version": "0.1.0",
+	"description": "Help you to save your time on leetcode",
+	"author": "https://github.com/buikhacnam",
+	"permissions": ["storage", "tabs"],
+	"host_permissions": ["https://*.leetcode.com/*"],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://*.leetcode.com/*"],
+			"js": ["contentScript.js"]
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": [],
+			"matches": ["https://*.leetcode.com/*"]
+		}
+	],
+	"action": {
+		"default_icon": {
+			"16": "assets/ext-icon.png",
+			"24": "assets/ext-icon.png",
+			"32": "assets/ext-icon.png"
+		},
+		"default_title": "Leetcode Assistant",
+		"default_popup": "popup.html"
+	},
+	"manifest_version": 3
 }
