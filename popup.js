@@ -58,6 +58,13 @@ function addPopupToLinks(container, problemSlug) {
 function saveClickedLink(link, problemSlug) {
   chrome.storage.local.get({ links: [] }, (result) => {
       const { links } = result;
+
+      // filter out duplicate links
+      const duplicate = links.some(savedLink => savedLink.link === link);
+      if (duplicate) {
+          console.log('Link already saved:', link);
+          return;
+      }
       links.push({ link, problemSlug });
       
       chrome.storage.local.set({ links }, () => {
