@@ -8,11 +8,12 @@ async function getActiveTabURL() {
 }
 document.addEventListener('DOMContentLoaded', async () => {
 	const activeTab = await getActiveTabURL()
-	const problemSlug = activeTab.url.slice(0, activeTab.url.length - 1).split('/').pop()
+  // so the slug will be after https://leetcode.com/problems/ and before the next slash
+	const problemSlug = activeTab.url.split('https://leetcode.com/problems/')[1].split('/')[0]
 	if (activeTab.url.includes('https://leetcode.com/problems/')) {
 		const container = document.getElementsByClassName('container')[0]
 
-		container.innerHTML = `<a class='solution' href="http://localhost:3000/experiments/${problemSlug}">View Solution Of This Problem</a>`
+		container.innerHTML = `<a class='solution' href="https://algonotebook.vercel.app/leetcode/${problemSlug}">View Solution Of This Problem</a>`
     addPopupToLinks(container, problemSlug)
 	} else {
 		const container = document.getElementsByClassName('container')[0]
