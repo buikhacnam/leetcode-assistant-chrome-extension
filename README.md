@@ -4,17 +4,22 @@ The LeetCode Assistant Chrome Extension enhances your experience on the LeetCode
 
 This extension makes use of [Algonotebook](https://github.com/buikhacnam/algo-notebook)
 
+<img src='assets/overview.gif' width='650' height='auto'/>
 
-[![Watch the video](https://img.youtube.com/vi/rgQktsSuO4A/hqdefault.jpg)](https://www.youtube.com/embed/rgQktsSuO4A)
+## Installation
+
+Download the extension in [Chrome Web Store]('https://chrome.google.com/webstore/detail/leetcode-assistant/nbeehcepchjjlajedbfbjcfdmgcoioja') page: 
+
+https://chrome.google.com/webstore/detail/leetcode-assistant/nbeehcepchjjlajedbfbjcfdmgcoioja
 
 ## Features
 
-- Automatically generates a "View Solution" link for LeetCode problems, allowing you to quickly access solutions on your preferred platform.
+- Automatically generates a "View Solution" link for LeetCode problems, allowing you to quickly access solutions in different languages.
 - Saves visited LeetCode problem links for easy access and reference.
 - Opens solution links in popup windows for a distraction-free reading experience.
 - User-friendly interface for easy navigation and interaction.
 
-## Installation
+## Run Locally
 
 1. Clone the repository:
 
